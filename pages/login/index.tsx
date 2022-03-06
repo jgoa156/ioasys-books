@@ -5,21 +5,20 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 // Shared
-import Header from "components/shared/Header";
 import Background from "components/shared/Background";
 import Spinner from "components/shared/Spinner";
 
 // Custom
-import Books from "components/pages/index/Books";
+import Form from "components/pages/Login/FormComponent";
 
-export default function Library() {
+export default function Login() {
 	const router = useRouter();
 	const user = useSelector(state => state.user);
 	const [loaded, setLoaded] = useState(false);
 
 	useEffect(() => {
-		if (!user.logged) {
-			router.replace("/login");
+		if (user.logged) {
+			router.replace("/");
 		} else {
 			setLoaded(true);
 		}
@@ -28,18 +27,14 @@ export default function Library() {
 	return (
 		<>
 			<Head>
-				<title>Acervo - {process.env.title}</title>
+				<title>Login - {process.env.title}</title>
 			</Head>
 
-			<Background src={`${process.env.img}/components/pages/index/bg.jpg`} />
+			<Background src={`${process.env.img}/components/pages/login/bg.jpg`} />
 			{loaded
-				? <>
-					<Header />
-
-					<main id={"main"}>
-						<Books />
-					</main>
-				</>
+				? <main id={"main"}>
+					<Form />
+				</main>
 				: <div style={{ height: "100vh", width: "100vw", display: "flex", justifyContent: "center", alignItems: "center" }}>
 					<Spinner size={"30px"} color={"var(--primary-color)"} />
 				</div>

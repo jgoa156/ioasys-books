@@ -1,0 +1,61 @@
+/*---------------------- VARIABLES ----------------------*/
+:root {
+	--primary-color: #AB2680;
+	--background: #FFF;
+	--background-hover: #EEE;
+
+	--success: #2e9af2;
+	--danger: #fc0356;
+
+	--text-default: #333;
+
+	--muted: #999;
+}
+
+/*---------------------- GENERAL ----------------------*/
+html {
+	height: 100%;
+	font-size: 16px;
+
+	scroll-behavior: smooth;
+	overflow-y: overlay;
+	scroll-padding-top: 65px;
+}
+body {
+	background-color: var(--background);
+	color: var(--text-default);
+	font-family: "Heebo";
+	padding: 0;
+	margin: 0;
+	position: relative;
+	min-height: 100vh;
+
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	opacity: 0.1;
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--muted);
+	border-radius: 10px;
+	transition: 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #888;
+	cursor: pointer;
+}
+
+/*---------------------- UTILS ----------------------*/
+.invert-color {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}

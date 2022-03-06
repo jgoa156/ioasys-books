@@ -1,0 +1,53 @@
+.customModalBackdrop {
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(2px);
+}
+
+.customModalDialog {
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+
+	margin: 0;
+	padding: 64px 16px 16px;
+}
+
+.customModalContent {
+	padding: 48px;
+
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.32);
+
+	@media only screen and (max-width: 575px) {
+		width: 100%;
+
+		padding: 24px;
+	}
+}
+
+.customModalLarge {
+	width: 60%;
+
+	@media only screen and (max-width: 1024px) {
+		width: 80%;
+	}
+}
+
+.customModalMedium {
+	width: 50%;
+
+	@media only screen and (max-width: 1024px) {
+		width: 60%;
+	}
+}
+
+.customModalSmall {
+	width: 35%;
+	padding: 24px;
+
+	@media only screen and (max-width: 1024px) {
+		width: 45%;
+	}
+}
