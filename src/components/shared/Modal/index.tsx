@@ -26,7 +26,7 @@ export default function ModalCustom({
 			onHide={close}
 			backdropClassName={styles.customModalBackdrop}
 			dialogClassName={styles.customModalDialog}
-			contentClassName={`${styles.customModalContent} ${sizeStyles[size]}`}>
+			contentClassName={`${sizeStyles[size]} ${styles.customModalContent}`}>
 			{props.children}
 
 			<ModalClose onClick={close}>
