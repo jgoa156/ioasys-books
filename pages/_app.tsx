@@ -10,7 +10,7 @@ import "../public/styles/main.css";
 
 import SessionWatcher from "components/shared/SessionWatcher";
 
-export default function AppWrapper(props) {
+export default function AppWrapper(props: any) {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
@@ -20,7 +20,7 @@ export default function AppWrapper(props) {
 	);
 }
 
-function App(props) {
+function App(props: any) {
 	return (
 		<section id="app">
 			<Head>
