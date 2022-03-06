@@ -13,10 +13,11 @@ export const BookWrapper = styled.div`
 	box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
 	border-radius: 4px;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	&:hover {
-		background-color: var(--background-hover);
+		transform: scale(1.05);
+		
 		cursor: pointer;
 	}
 `;

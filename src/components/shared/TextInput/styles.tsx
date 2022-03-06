@@ -22,7 +22,7 @@ export const AlertLabel = styled.div`
 	font-size: 0.75rem;
 	font-weight: 400;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	&:not(:empty) {
 		animation: fade-in 0.1s forwards;

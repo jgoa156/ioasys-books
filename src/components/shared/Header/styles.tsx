@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
 	justify-content: center;
 	align-items: center;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	nav {
 		height: fit-content;
@@ -55,7 +55,7 @@ export const Logout = styled.button`
 	border: 1px solid rgba(51, 51, 51, 0.2);
 	border-radius: 50%;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	div {
 		display: flex;

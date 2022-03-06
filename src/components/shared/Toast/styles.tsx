@@ -20,8 +20,8 @@ export const Toast = styled.div`
 	background-color: var(--background);
 	box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
 
-	transition: 0.3s;
-	animation: fade-in 0.3s, fade-out 0.3s;
+	transition: 0.2s;
+	animation: fade-in 0.2s, fade-out 0.2s;
 	animation-delay: 0s, 3.3s;
 
 	@keyframes fade-in {

@@ -20,13 +20,26 @@ export const Wrapper = styled.div`
 		@media only screen and (max-width: 575px) {
 			padding: 0 15px;
 		}
+
+		animation: slide 1s forwards;
+
+		@keyframes slide {
+			from {
+				opacity: 0;
+				margin-top: 150px;
+			}
+			to {
+				opacity: 1;
+				margin-top: 0;
+			}
+		}
 	}
 `;
 
 export const Form = styled.form`
 	position: relative;
 	margin-top: 50px;
-	width: 30%;
+	width: 35%;
 
 	@media only screen and (max-width: 1024px) {
 		width: 50%;

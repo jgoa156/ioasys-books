@@ -14,7 +14,7 @@ export const ButtonStyled = styled.button`
 	border: none;
 	outline: none;
 
-	transition: 0.3s;
+	transition: 0.2s;
 
 	&:hover {
 		background-color: var(--background-hover);
