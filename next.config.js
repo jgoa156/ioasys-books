@@ -17,6 +17,9 @@ module.exports = {
 		basePath: basePath,
 		img: `${basePath}/img`,
 		api: "https://books.ioasys.com.br/api/v1",
-		title: "Ioasys Books"
+		title: "Ioasys Books",
+	},
+	typescript: {
+		ignoreBuildErrors: true,
 	}
 };
