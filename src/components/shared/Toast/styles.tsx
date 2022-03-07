@@ -12,6 +12,7 @@ export const Toast = styled.div`
 	z-index: 9999;
 
 	min-width: 30%;
+	max-width: calc(100% - 30px);
 	width: fit-content;
 	border-radius: 5px;
 	padding: 15px;

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 // Shared
 import { IconChevron } from "components/shared/Icons";
 import toast from "components/shared/Toast";
+import { checkAuthentication } from "utils";
 
 // Custom
 import Book from "./Book";
@@ -57,6 +58,7 @@ export default function Books() {
 
 	async function fetchBooks(page, amount) {
 		setFetching(true);
+		await checkAuthentication();
 
 		const options = {
 			url: `${process.env.api}/books?page=${page}&amount=${amount}`,
