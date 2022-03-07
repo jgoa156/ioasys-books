@@ -16,6 +16,8 @@ export function checkAuthentication() {
 		return JSON.parse(jsonPayload);
 	}
 
+	var authorized = false;
+
 	async function authenticate(refreshToken) {
 		const options = {
 			url: `${process.env.api}/auth/refresh-token`,
@@ -30,16 +32,19 @@ export function checkAuthentication() {
 
 		await axios.request(options).then(
 			(response) => {
+				authorized = true;
 				store.dispatch(authorize({
 					authorization: response.headers["authorization"],
 					refreshToken: response.headers["refresh-token"]
 				}));
 			}).catch((error) => {
+				authorized = false;
 				toast("Oops", "Houve um erro ao renovar sua sessão.");
 			});
 	}
 
 	function kick() {
+		authorized = false;
 		store.dispatch(logout());
 	}
 
@@ -58,6 +63,10 @@ export function checkAuthentication() {
 			kick();
 		} else if (authExpired) {
 			authenticate(user.refreshToken);
+		} else {
+			authorized = true;
 		}
 	}
+
+	return authorized;
 }

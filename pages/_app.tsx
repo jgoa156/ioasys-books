@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "redux/store";
@@ -21,6 +22,12 @@ export default function AppWrapper(props: any) {
 }
 
 function App(props: any) {
+	const SEO = {
+		title: "Ioasys Books",
+		description: "This page was as made as part of Ioasys's Front-end Developer challenge.",
+		url: "https://guilherme-ioasys-books.vercel.app",
+		image: "/img/seo/preview.jpg"
+	};
 	return (
 		<section id="app">
 			<Head>
@@ -54,6 +61,52 @@ function App(props: any) {
 			<noscript>
 				You need to turn on JavaScript to see this page
 			</noscript>
+
+			<NextSeo
+				title={SEO.title}
+				description={SEO.description}
+				canonical={SEO.url}
+				additionalMetaTags={[
+					{
+						name: "image",
+						content: `${SEO.url}${SEO.image}`
+					}
+				]}
+				openGraph={{
+					title: SEO.title,
+					description: SEO.description,
+					type: "website",
+					locale: "en_IE",
+					url: SEO.url,
+					images: [
+						{
+							url: `${SEO.url}${SEO.image}`,
+							secureUrl: `${SEO.url}${SEO.image}`,
+							alt: "Preview Image",
+							type: "image/jpeg",
+							width: 750,
+							height: 450
+						}
+					],
+					article: {
+						tags: [
+							"books",
+							"livros",
+							"ioasys",
+							"front-end",
+							"frontend",
+							"front end",
+							"challenge",
+							"desafio",
+						]
+					}
+				}}
+				twitter={{
+					handle: "@handle",
+					site: "@site",
+					cardType: "summary_large_image",
+				}}
+			/>
 
 			<SessionWatcher />
 			<props.Component {...props.pageProps} />

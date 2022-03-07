@@ -28,7 +28,7 @@ export default function Library() {
 	return (
 		<>
 			<Head>
-				<title>Acervo - {process.env.title}</title>
+				<title>{loaded ? "Acervo - " : ""}{process.env.title}</title>
 			</Head>
 
 			<Background src={`${process.env.img}/components/pages/index/bg.jpg`} />

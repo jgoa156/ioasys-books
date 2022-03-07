@@ -15,6 +15,7 @@
 
 .customModalLarge {
 	width: 60%;
+	padding: 48px;
 
 	@media only screen and (max-width: 1024px) {
 		width: 80%;
@@ -23,6 +24,7 @@
 
 .customModalMedium {
 	width: 50%;
+	padding: 48px;
 
 	@media only screen and (max-width: 1024px) {
 		width: 60%;
@@ -39,8 +41,6 @@
 }
 
 .customModalContent {
-	padding: 48px;
-
 	border: none;
 	border-radius: 4px;
 	box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.32);

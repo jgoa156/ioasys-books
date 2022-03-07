@@ -39,10 +39,6 @@ export default function Books() {
 		let pageQuery = 1;
 		if (router.query.page && (parseInt(router.query.page) >= 1)) {
 			pageQuery = parseInt(router.query.page);
-
-			if (totalPages != 0 && pageQuery > totalPages) {
-				router.replace(`/?page=${totalPages}`);
-			}
 		} else if (parseInt(router.query.page) < 1) {
 			router.replace("/?page=1");
 		}
@@ -58,26 +54,36 @@ export default function Books() {
 
 	async function fetchBooks(page, amount) {
 		setFetching(true);
-		await checkAuthentication();
 
-		const options = {
-			url: `${process.env.api}/books?page=${page}&amount=${amount}`,
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Bearer ${user.authorization}`
-			}
-		};
+		const authorized = await checkAuthentication();
+		
+		if (authorized) {
+			const options = {
+				url: `${process.env.api}/books?page=${page}&amount=${amount}`,
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${user.authorization}`
+				}
+			};
 
-		await axios.request(options).then(
-			(response) => {
-				setBooks(response.data.data);
-				setTotalPages(Math.ceil(response.data.totalPages));
-			}).catch((error) => {
-				toast("Oops", "Houve um erro ao carregar a página. Por favor, tente novamente.", "error");
-			});
+			await axios.request(options).then(
+				(response) => {
+					setBooks(response.data.data);
 
-		setFetching(false);
+					const totalPagesTemp = Math.ceil(response.data.totalPages);
+
+					if (page > totalPagesTemp) {
+						router.replace(`/?page=${totalPagesTemp}`);
+					} else {
+						setTotalPages(totalPagesTemp);
+					}
+				}).catch((error) => {
+					toast("Oops", "Houve um erro ao carregar a página. Por favor, tente novamente.", "error");
+				});
+
+			setFetching(false);
+		}
 	}
 
 	return (
