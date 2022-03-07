@@ -28,6 +28,7 @@ function App(props: any) {
 		url: "https://guilherme-ioasys-books.vercel.app",
 		image: "/img/seo/preview.jpg"
 	};
+	
 	return (
 		<section id="app">
 			<Head>
